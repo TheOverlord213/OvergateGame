@@ -44,7 +44,7 @@ public class PickUpObj : MonoBehaviour
     {
         // Display the explosion radius when selected
         Gizmos.color = Color.red;
-        Vector3 added = new Vector3(0, 0, 20);
+        Vector3 added = transform.forward * 20;
         Gizmos.DrawWireSphere(transform.position+added, sphereRadius);
     }
 }
