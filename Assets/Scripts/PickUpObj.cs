@@ -24,11 +24,10 @@ public class PickUpObj : MonoBehaviour
         RaycastHit hit;
 
         Vector3 p1 = transform.position;
-        float distanceToObstacle = 0;
 
         // Cast a sphere wrapping character controller 10 meters forward
         // to see if it is about to hit anything.
-        if (Physics.SphereCast(p1, sphereRadius, transform.forward, out hit, 20))
+        if (Physics.SphereCast(p1, sphereRadius, transform.forward, out hit, 30))
         {
             if(hit.transform.gameObject.tag =="Collectable")
             {
@@ -44,7 +43,7 @@ public class PickUpObj : MonoBehaviour
     {
         // Display the explosion radius when selected
         Gizmos.color = Color.red;
-        Vector3 added = transform.forward * 20;
+        Vector3 added = transform.forward * 30;
         Gizmos.DrawWireSphere(transform.position+added, sphereRadius);
     }
 }

@@ -54,10 +54,10 @@ public class PlayerRailController : MonoBehaviour
         {
             PlayerAgent.SetDestination(targetPoints[destPoint].position);
 
-            Vector3 lookPos = targetPoints[destPoint].transform.position - PlayerAgent.transform.position;
-            lookPos.y = 0;
-            Quaternion targetRotation = Quaternion.LookRotation(lookPos);
-            PlayerAgent.transform.rotation = Quaternion.Slerp(PlayerAgent.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            //Vector3 lookPos = targetPoints[destPoint].transform.position - PlayerAgent.transform.position;
+            //lookPos.y = 0;
+            //Quaternion targetRotation = Quaternion.LookRotation(lookPos);
+            //PlayerAgent.transform.rotation = Quaternion.Slerp(PlayerAgent.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
         if (!PlayerAgent.pathPending && PlayerAgent.remainingDistance < 0.5f)
