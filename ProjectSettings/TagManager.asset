@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectable
+  - projectile
+  - FxTemporaire
+  - UI
+  - ResetUI
   layers:
   - Default
   - TransparentFX

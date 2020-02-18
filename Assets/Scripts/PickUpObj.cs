@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PickUpObj : MonoBehaviour
 {
     public float sphereRadius;
+    public float distance;
 
 
     // Start is called before the first frame update
@@ -25,25 +28,36 @@ public class PickUpObj : MonoBehaviour
 
         Vector3 p1 = transform.position;
 
-        // Cast a sphere wrapping character controller 10 meters forward
-        // to see if it is about to hit anything.
-        if (Physics.SphereCast(p1, sphereRadius, transform.forward, out hit, 30))
+
+        if(Physics.Raycast(p1,transform.forward*distance,out hit))
         {
-            if(hit.transform.gameObject.tag =="Collectable")
+            Debug.DrawRay(p1, transform.TransformDirection(Vector3.forward)*distance, Color.yellow);
+
+            if (hit.transform.gameObject.tag == "Collectable")
             {
                 Destroy(hit.transform.gameObject);
             }
-           
+            else if (hit.transform.gameObject.tag == "UI")
+            {
+                hit.transform.gameObject.GetComponent<StartButton>().StartGame();
+            }
+            else if (hit.transform.gameObject.tag == "ResetUI")
+            {
+                hit.transform.gameObject.GetComponent<ResetUi>().ResetUI();
+            }
+
         }
 
     }
+
+
 
 
     void OnDrawGizmosSelected()
     {
         // Display the explosion radius when selected
         Gizmos.color = Color.red;
-        Vector3 added = transform.forward * 30;
+        Vector3 added = transform.forward * distance;
         Gizmos.DrawWireSphere(transform.position+added, sphereRadius);
     }
 }
