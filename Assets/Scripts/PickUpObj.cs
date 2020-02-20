@@ -35,11 +35,17 @@ public class PickUpObj : MonoBehaviour
 
             if (hit.transform.gameObject.tag == "Collectable")
             {
-                Destroy(hit.transform.gameObject);
+                //Destroy(hit.transform.gameObject);
+                hit.transform.gameObject.SetActive(false);
             }
             else if (hit.transform.gameObject.tag == "UI")
             {
-                hit.transform.gameObject.GetComponent<StartButton>().StartGame();
+                if (hit.transform.gameObject.name == "StartButton")
+                    hit.transform.gameObject.GetComponent<StartButton>().StartGame();
+                else if (hit.transform.gameObject.name == "EnableQuestButton")
+                    hit.transform.gameObject.GetComponent<PickupsEnabledButton>().PickupActivated();
+                else if (hit.transform.gameObject.name == "DisableQuestButton")
+                    hit.transform.gameObject.GetComponent<PickupsDisabledButton>().DisablePickupActivated();
             }
             else if (hit.transform.gameObject.tag == "ResetUI")
             {

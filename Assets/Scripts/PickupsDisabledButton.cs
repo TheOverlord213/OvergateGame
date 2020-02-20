@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartButton : MonoBehaviour
+public class PickupsDisabledButton : MonoBehaviour
 {
     private float lookTimer;
     public float innerLookTimer;
@@ -19,16 +19,15 @@ public class StartButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
-    public void StartGame()
+    public void DisablePickupActivated()
     {
-        if(innerLookTimer <= 0)
+        if (innerLookTimer <= 0)
         {
             //fade panels
-            //gameController.GetComponent<GameController>().FadeOutAllPanels();
-            gameController.GetComponent<GameController>().PickupChoice();
+            gameController.GetComponent<GameController>().DisablePickupObjects();
             innerLookTimer = lookTimer;
         }
         else
@@ -42,5 +41,4 @@ public class StartButton : MonoBehaviour
     {
         innerLookTimer = lookTimer;
     }
-
 }
