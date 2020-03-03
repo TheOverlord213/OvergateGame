@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OvergateModelTest.unity
-    guid: 319fa6247ec712245be92c992746740c
+    path: Assets/Scenes/RitaTest.unity
+    guid: ce3c19d5c280bbf4cb67cbca10d69c96
   m_configObjects: {}

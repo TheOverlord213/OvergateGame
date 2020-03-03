@@ -10,12 +10,18 @@ public class PlayerRailController : MonoBehaviour
     public int playerSpeed;
 
     public Transform[] targetPoints;
+    private Vector3 playerStartPosition;
     private int destPoint = 0;
     bool firstPointReached = false;
 
     private float playerWaitChecker = 0;
 
     private bool movementStarted = false;
+
+    public GameObject cameraRig;
+    public GameObject cameraRigCamera;
+    public float cameraRigPos;
+    public float cameraRigCameraPos;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +30,27 @@ public class PlayerRailController : MonoBehaviour
         PlayerAgent.updateRotation = false;
         PlayerAgent.updatePosition = true;
         PlayerAgent.speed = playerSpeed;
+        playerStartPosition = PlayerAgent.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ResetCameraPos();
+
         if (movementStarted)
             RailController();
+        else
+        {
+            PlayerAgent.transform.position = playerStartPosition;
+        }
+              
+    }
+
+    void ResetCameraPos()
+    {
+        cameraRig.transform.localPosition = new Vector3(cameraRig.transform.localPosition.x, cameraRigPos, cameraRig.transform.localPosition.z);
+        cameraRigCamera.transform.localPosition = new Vector3(cameraRigCamera.transform.localPosition.x, cameraRigCameraPos, cameraRigCamera.transform.localPosition.z);
     }
 
     void RailController()
