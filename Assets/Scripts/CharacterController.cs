@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public UnityEngine.AI.NavMeshAgent CharacterAgent { get; private set; }
+    public UnityEngine.AI.NavMeshAgent characterAgent { get; private set; }
     public int characterSpeed;
 
     public Transform[] targetPoints;
@@ -16,10 +16,10 @@ public class CharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CharacterAgent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
-        CharacterAgent.updateRotation = false;
-        CharacterAgent.updatePosition = true;
-        CharacterAgent.speed = characterSpeed;
+        characterAgent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
+        characterAgent.updateRotation = false;
+        characterAgent.updatePosition = true;
+        characterAgent.speed = characterSpeed;
     }
 
     // Update is called once per frame
@@ -35,10 +35,16 @@ public class CharacterController : MonoBehaviour
             return;
         else
         {
-            CharacterAgent.SetDestination(targetPoints[destPoint].position);
+            characterAgent.SetDestination(targetPoints[destPoint].position);
+
+            Vector3 lookPos = targetPoints[destPoint].position - characterAgent.transform.position;
+            lookPos.y = 0;
+            Quaternion targetRotation = Quaternion.LookRotation(lookPos);
+            characterAgent.transform.rotation = Quaternion.Slerp(characterAgent.transform.rotation, targetRotation, 5 * Time.deltaTime);
+        
         }
 
-        if (!CharacterAgent.pathPending && CharacterAgent.remainingDistance < 0.5f)
+        if (!characterAgent.pathPending && characterAgent.remainingDistance < 0.5f)
         {
             destPoint = (destPoint + 1) % targetPoints.Length;
         }
