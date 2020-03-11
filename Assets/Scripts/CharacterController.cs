@@ -13,6 +13,8 @@ public class CharacterController : MonoBehaviour
     //private Vector3 characterStartPosition;
     private int destPoint = 0;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class CharacterController : MonoBehaviour
         characterAgent.updateRotation = false;
         characterAgent.updatePosition = true;
         characterAgent.speed = characterSpeed;
+        anim = GetComponent<Animator>();
+
+        anim.SetBool("playAnimation", true);
     }
 
     // Update is called once per frame
