@@ -257,6 +257,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2936321863378521790}
   - component: {fileID: 5059208059024794564}
+  - component: {fileID: 828876351791640075}
+  - component: {fileID: 6831393309227057412}
   m_Layer: 0
   m_Name: Male 1 (Walk)
   m_TagString: Untagged
@@ -299,6 +301,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &828876351791640075
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226098684346842285}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.01
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.03
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6831393309227057412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226098684346842285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902c3ec27b6fd314cbf6d8ddbd22f02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSpeed: 3
+  targetPoints: []
 --- !u!1 &2293554464661422580
 GameObject:
   m_ObjectHideFlags: 0

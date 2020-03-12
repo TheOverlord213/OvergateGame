@@ -472,6 +472,8 @@ GameObject:
   m_Component:
   - component: {fileID: 744382659358641655}
   - component: {fileID: 7268413785849520269}
+  - component: {fileID: 7977090791139391700}
+  - component: {fileID: 5940447063325283137}
   m_Layer: 0
   m_Name: Kid 1 (Running)
   m_TagString: Untagged
@@ -514,6 +516,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &7977090791139391700
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327904048815456228}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.01
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.03
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5940447063325283137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327904048815456228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902c3ec27b6fd314cbf6d8ddbd22f02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSpeed: 3
+  targetPoints: []
 --- !u!1 &4338790576347908993
 GameObject:
   m_ObjectHideFlags: 0

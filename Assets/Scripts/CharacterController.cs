@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
     //private Vector3 characterStartPosition;
     private int destPoint = 0;
 
-    public Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,8 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CharacterMovement();
+        if (targetPoints.Length != 0)
+            CharacterMovement();
     }
 
     public void CharacterMovement()
@@ -49,7 +50,7 @@ public class CharacterController : MonoBehaviour
         
         }
 
-        if (!characterAgent.pathPending && characterAgent.remainingDistance < 0.5f)
+        if (!characterAgent.pathPending && characterAgent.remainingDistance < 1f)
         {
             destPoint = (destPoint + 1) % targetPoints.Length;
         }

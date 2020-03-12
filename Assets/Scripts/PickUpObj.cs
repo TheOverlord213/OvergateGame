@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PickUpObj : MonoBehaviour
 {
+    public float yPos;
     public float sphereRadius;
     public float distance;
 
@@ -26,7 +27,7 @@ public class PickUpObj : MonoBehaviour
     {
         RaycastHit hit;
 
-        Vector3 p1 = transform.position;
+        Vector3 p1 = transform.position+new Vector3(0, yPos, 0);
 
 
         if(Physics.Raycast(p1,transform.forward*distance,out hit))

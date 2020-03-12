@@ -26,8 +26,14 @@ public class GameController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        
+    {
+        if (Input.GetKey("escape"))
+            Application.Quit();
+
+        if (Input.GetKey("y"))
+            EnablePickupObjects();
+        else if (Input.GetKey("n"))
+            DisablePickupObjects();
     }
 
     public void PickupChoice()
